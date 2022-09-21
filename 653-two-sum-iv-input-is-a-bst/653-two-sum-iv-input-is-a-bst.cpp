@@ -11,9 +11,9 @@
  */
 class Solution {
 public:
-    map<int,int>m;
+    unordered_map<int,int>m;
     bool flag=false;
-    void inorder(TreeNode *root, map<int,int>&m,int k){
+    void inorder(TreeNode *root,unordered_map<int,int>&m,int k){
         if(root==NULL) return;
         inorder(root->left,m,k);
         if(m[k-root->val]){flag=true; return;}
