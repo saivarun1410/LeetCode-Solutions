@@ -16,13 +16,8 @@ public:
     void inorder(TreeNode *root, map<int,int>&m,int k){
         if(root==NULL) return;
         inorder(root->left,m,k);
-        if(m[k-root->val]){
-            flag=true; 
-            return;
-         }
-        else{
-            m[root->val]=true;
-        }
+        if(m[k-root->val]){flag=true; return;}
+        else{m[root->val]=true;}
         inorder(root->right,m,k);
     }
     bool findTarget(TreeNode* root, int k) {
