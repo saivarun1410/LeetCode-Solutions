@@ -1,11 +1,15 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        for(int i=0;i<nums.size();i++){
-            for(int j=i+1;j<nums.size();j++){
-                if(nums[i]>nums[j]){
-                    swap(nums[i],nums[j]);
-                }
+        int l=nums.size();
+        int low=0;
+        int mid=0;
+        int high=l-1;
+        while(mid<=high){
+            switch(nums[mid]){
+                case 0:swap(nums[low++],nums[mid++]); break;
+                case 1:mid++; break;
+                case 2:swap(nums[mid],nums[high--]); break;
             }
         }
     }
