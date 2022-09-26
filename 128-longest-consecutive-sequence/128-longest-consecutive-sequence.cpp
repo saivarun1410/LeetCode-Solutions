@@ -9,7 +9,7 @@ public:
         if(l==0) return 0;
         int maxi=1;
         for(int it:nums){
-            if (!s.count(it - 1)) {
+            if (s.count(it-1)==0) {
                 int curval=it;
                 int count=1;
             while(s.count(curval+1)){
