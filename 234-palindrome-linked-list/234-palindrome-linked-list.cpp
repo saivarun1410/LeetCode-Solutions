@@ -34,7 +34,7 @@ public:
             temp1=temp1->next;
             temp2=temp2->next;
         }
-        slow->next=rev(slow->next);
+        //slow->next=rev(slow->next);
         return true;
     }
 };
