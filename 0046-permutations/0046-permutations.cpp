@@ -1,30 +1,21 @@
 class Solution {
 public:
-    vector<vector<int>>res;
-    void f(int i, int n, vector<int>&ans,vector<int>&nums,int fr[]){
-        if(ans.size()==n){
-            res.push_back(ans);
-            return;
+    void f(int pos, int n, vector<int>&nums,vector<vector<int>>&res){
+        if(pos==n){
+            res.push_back(nums);
+            return ;
         }
-        for(int i=0;i<n;i++){
-            if(fr[i]==0){
-                ans.push_back(nums[i]);
-                fr[i]=1;
-                f(i+1,n,ans,nums,fr);
-                fr[i]=0;
-                ans.pop_back();
-            }
+        for(int i=pos;i<n;i++){
+            swap(nums[i],nums[pos]);
+            f(pos+1,n,nums,res);
+            swap(nums[i],nums[pos]);
         }
-        //return;
     }
     vector<vector<int>> permute(vector<int>& nums) {
         int n=nums.size();
-        int fr[n];
-        vector<int>ans;
-        for(int i=0;i<n;i++){
-            fr[i]=0;
-        }
-        f(0,n,ans,nums,fr);
+        vector<vector<int>>res;
+        vector<int>v;
+        f(0,n,nums,res);
         return res;
     }
 };
