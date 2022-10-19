@@ -1,23 +1,24 @@
 class Solution {
 public:
-    void f(int i, int n, int target, vector<int>&v, vector<vector<int>>&ans,vector<int>&nums){
+    vector<vector<int>>ans;
+    void f(int i,int n, int target, vector<int>&nums,vector<int>&v){
         if(target==0){
             ans.push_back(v);
-            return ;
+            return;
         }
-        if(i==n) return ;
-        if(nums[i]<=target){
+        if(i==n) return;
+        if(target>=nums[i]){
             v.push_back(nums[i]);
-            f(i,n,target-nums[i],v,ans,nums);
+            f(i,n,target-nums[i],nums,v);
             v.pop_back();
         }
-        f(i+1,n,target,v,ans,nums);
+        f(i+1,n,target,nums,v);
+        return;
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         int n=candidates.size();
         vector<int>v;
-        vector<vector<int>>ans;
-        f(0,n,target,v,ans,candidates);
+        f(0,n,target,candidates,v);
         return ans;
     }
 };
