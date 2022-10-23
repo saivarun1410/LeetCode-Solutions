@@ -7,7 +7,7 @@ public:
         }
         while(q.size()!=1){
             int rotate=k;
-            while(rotate>1){
+            while(rotate!=1){
                 int first=q.front();
                 q.pop();
                 q.push(first);
