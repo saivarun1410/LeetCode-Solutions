@@ -4,14 +4,13 @@ public:
         int n=arr.size();
         int low=0;
         int high=n-1;
+        int mid=0;
         while(low<high){
-            int mid=(low+high)/2;
+            mid=(low+high)/2;
             if(arr[mid]>arr[mid-1]&&arr[mid]>arr[mid+1]){
-                cout<<mid<<endl;
                 return mid;
             }
             else if(arr[mid]<arr[mid+1]){
-                cout<<low<<endl;
                 low=mid+1;
             }
             else{
@@ -19,6 +18,6 @@ public:
                 high=mid;
             }
         }
-        return low;
+        return mid;
     }
 };
