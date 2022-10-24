@@ -14,7 +14,6 @@ public:
                 low=mid+1;
             }
             else{
-                cout<<high<<endl;
                 high=mid;
             }
         }
