@@ -1,16 +1,23 @@
 class Solution {
 public:
-    int memo[20][20];
-    int trees(int low,int high){
-        if(low>=high) return 1;
-        int total=0;
-        if(memo[low][high]!=0) return memo[low][high];
-        for(int i=low;i<=high;i++){
-            total+=trees(low,i-1)*trees(i+1,high);
-        }
-        return memo[low][high]=total;
-    }
     int numTrees(int n) {
-        return trees(1,n);
+        vector<int>dp(n+1);
+        dp[0]=1;
+        dp[1]=1;
+        for(int i=2;i<=n;i++){
+            int sum=0;
+            cout<<i<<endl;
+            for(int j=1;j<=i;j++){
+                int leftbst=dp[j-1];
+                cout<<"leftbst="<<leftbst<<" "<<endl;
+                int rightbst=dp[i-j];
+                cout<<"rightbst="<<rightbst<<" "<<endl;
+                sum+=leftbst*rightbst;
+                cout<<"sum="<<sum<<endl;
+            }
+            dp[i]=sum;
+            cout<<endl;
+        }
+        return dp[n];
     }
 };
