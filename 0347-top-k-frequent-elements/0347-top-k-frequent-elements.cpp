@@ -8,7 +8,7 @@ public:
         }
         for(auto it:m){
             pq.push({it.second,it.first});
-            while (pq.size()>k) pq.pop();
+            while(pq.size()>k) pq.pop();
         }
         vector<int>ans;
         while(!pq.empty()){
